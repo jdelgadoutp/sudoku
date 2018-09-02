@@ -1,11 +1,12 @@
 package Sudoku;
 
-import com.sun.java_cup.internal.runtime.Scanner;
+import java.util.Random;
+import java.util.Scanner;
+
+
 
 public class Sodoku {
 	//Sudoku
-	
-	
 	
 	private int size1;
 	private int size2;
@@ -51,49 +52,40 @@ public class Sodoku {
 		this.elements = new int[newSize1][newSize2];
 	}
 	
-	
-	//Procedimiento de recorrer la matriz
-	
-	
-	/*public int[][] RecorrerMatrizyAsignacion() {
 
-		// Recorrer la Matriz
-
-				//System.out.println(this.elements[i][j]);				
-			}
-		}
-		
-		return this.elements;
-	}
-
-	 
-	*/
-	public static void main(String[] args) {
-		// TODO Auto-generated method 
-		
+	public static void main(String[] args) { 
+		//Instancia de variables
+		Scanner input =new Scanner(System.in);
 		Sodoku Ejecutar = new Sodoku(3,3);
+		Random aleatorio = new Random(System.currentTimeMillis());
 		
-		for (int i = 0; i < Ejecutar.size1; i++) {
-			for(int j = 0; j < Ejecutar.size2; j++) {
+		
+		//Recorrer Matriz y asignarle un  numero en una posicion continua
+		for (int i = 0; i < Ejecutar.elements.length; i++) 
+		{
+			for(int j = 0; j < Ejecutar.elements.length; j++) 
+			{
 			//Luego de recorrer la Matriz agregar elemento
-				System.out.println("Digite el numero en la posicion: ");
-				//this.elements[i][j] = element;
+				//System.out.println("el numero i es: " +i+ " Y el numero en j es: " +j+" ");
 				
+				// Producir nuevo int aleatorio entre 0 y 99
+				Ejecutar.elements[i][j] = aleatorio.nextInt(100);
 			}
 		}
-		int Valor = 3;
 		
-		//Ejecutar.RecorrerMatrizyAsignacion(Valor);
-		
-		//System.out.println(Ejecutar.RecorrerMatrizyAsignacion(Valor));
-		
-		System.out.println(Ejecutar.elements[0][0]);
-		
-		                                     
-	
-	}
-
+		//Mostrar la Matriz
+		for (int i = 0; i < Ejecutar.elements.length; i++) 
+		{
+			for(int j = 0; j < Ejecutar.elements.length; j++) 
+			{
+			//Mostra la Matriz
+				System.out.print("| "+Ejecutar.elements[i][j]+" | "+"\t");
+				//if (j!=Ejecutar.elements[i].length-1) System.out.print("\t");
+			}
+			System.out.println("");
 		}
+
+		// Refrescar datos aleatorios 
+		aleatorio.setSeed(System.currentTimeMillis());
 	}
-	}
-	
+}
