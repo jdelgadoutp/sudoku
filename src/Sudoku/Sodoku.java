@@ -56,7 +56,7 @@ public class Sodoku {
 	public static void main(String[] args) { 
 		//Instancia de variables
 		Scanner input =new Scanner(System.in);
-		Sodoku Ejecutar = new Sodoku(3,3);
+		Sodoku Ejecutar = new Sodoku(9,9);
 		Random aleatorio = new Random(System.currentTimeMillis());
 		
 		
@@ -69,7 +69,11 @@ public class Sodoku {
 				//System.out.println("el numero i es: " +i+ " Y el numero en j es: " +j+" ");
 				
 				// Producir nuevo int aleatorio entre 0 y 99
-				Ejecutar.elements[i][j] = aleatorio.nextInt(100);
+				Ejecutar.elements[i][j] = aleatorio.nextInt(9);
+				if (Ejecutar.elements[i][j] == 0) 
+				{
+					Ejecutar.elements[i][j] = aleatorio.nextInt(9);
+				}
 			}
 		}
 		
